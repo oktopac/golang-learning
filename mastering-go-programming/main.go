@@ -7,4 +7,5 @@ func main() {
 	// aa_channel.TwoChannels()
 	// aa_channel.CombineTwoChannels()
 	aa_channel.SyncTwoChannels()
+	aa_channel.SyncTwoChannelsFeedback()
 }

@@ -11,6 +11,7 @@ func boring_sync(tosay string, sync <-chan bool) <-chan string {
 
 	go func() {
 		for i := 0; ; i++ {
+			// time.Sleep(time.Millisecond * time.Duration(rand.Int31n(1000)))
 			c <- fmt.Sprintf("I'm saying \"%s\" for the %d time!", tosay, i)
 			time.Sleep(time.Millisecond * time.Duration(rand.Int31n(1000)))
 			<-sync
@@ -31,7 +32,7 @@ func SyncTwoChannels() {
 		}
 	}()
 
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 10; i++ {
 		syncChan1 <- true
 		syncChan2 <- true
 	}
